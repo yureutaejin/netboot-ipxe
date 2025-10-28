@@ -1,11 +1,13 @@
 services:
   iso-server:
     environment:
-      - ISOS=${ISOS}
+      - ISO_DIR=${ISO_DIR}
+      - ISO_9660_DIR=${ISO_9660_DIR}
     image: nginx:1.29.2-alpine
     ports:
       - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ${ISOS}:/mnt/isos:ro
+      - ${ISO_DIR}:/mnt/iso:ro
+      - ${ISO_9660_DIR}:/mnt/iso_9660:ro
     restart: unless-stopped
