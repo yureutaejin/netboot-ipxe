@@ -1,0 +1,5 @@
+#!ipxe
+set base-url http://192.168.10.1/httpboot/rocky
+kernel ${base-url}/images/pxeboot/vmlinuz inst.repo=${base-url}/Rocky-9.4-custom.iso inst.ks=cdrom
+initrd ${base-url}/images/pxeboot/initrd.img
+boot
